@@ -62,6 +62,19 @@
                             </a>
                         </div>
                     </li>
+                      <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                            Status
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="<c:url value="<%=UrlConst.STATUS_DASHBOARD %>" />">
+                               	Manage Status
+                            </a>
+                            <a class="dropdown-item" href="<c:url value="<%=UrlConst.STATUS_ADD %>" />">
+                                Create Status
+                            </a>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>

@@ -126,8 +126,8 @@
                         </a>
                         <div id="account_menu" class="dropdown-menu dropdown-menu-right">
                             <div class="dropdown-item-text dropdown-item-text--lh">
-                                <div><strong>Thanh Tuấn</strong></div>
-                                <div>@tuanphan</div>
+                                <div><strong>Kenneth</strong></div>
+                                <div>@Kenneth</div>
                             </div>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item active" href="<c:url value="<%=UrlConst.HOME %>" />">

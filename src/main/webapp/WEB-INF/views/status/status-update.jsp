@@ -1,13 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-
 <%@ page import="cyber.java.crmApp.util.UrlConst" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
     <head>
 <meta charset="UTF-8">
-<title>Add New ROLE</title>
+<title>Update Status</title>
 </head>
 <body>
 	<!-- Breadcrumb -->
@@ -18,13 +16,13 @@
 	                <nav aria-label="breadcrumb">
 	                    <ol class="breadcrumb mb-0">
 	                        <li class="breadcrumb-item"><a href="<c:url value="<%=UrlConst.HOME %>" />">Home</a></li>
-	                        <li class="breadcrumb-item"><a href="<c:url value="<%=UrlConst.ROLE_DASHBOARD %>" />">User</a></li>
+	                        <li class="breadcrumb-item"><a href="<c:url value="<%=UrlConst.ROLE_DASHBOARD %>" />">Status</a></li>
 	                        <li class="breadcrumb-item active" aria-current="page">
-	                            Add New Role
+	                         Update Status
 	                        </li>
 	                    </ol>
 	                </nav>
-	                <h1 class="m-0">Add New Role</h1>
+	                <h1 class="m-0">UpDate Status</h1>
 	            </div>
 	        </div>
 	    </div>
@@ -38,9 +36,8 @@
                     <p class="text-muted">There is no rule!</p>
                 </div>
                 <div class="col-lg-8 card-form__body card-body">
-                    <form action="<c:url value="<%=UrlConst.ROLE_ADD %>" />" method="post">
-                    
-                      
+                    <form action="<c:url value="<%=UrlConst.STATUS_UPDATE %>" />" method="post">
+                   
                     <div class="form-group">
           <label class="fst-italic" for="code">Code</label>
           <input
@@ -49,22 +46,22 @@
             name="id"
             id="id"
         
-            value="0"
-            hidden
+            value="${status.id }"
+            readonly
           />
         </div>
-                        
+        
+                     
                         <div class="form-group">
                             <label for="name">Name:</label>
-                            <input type="text" class="form-control" name="name" id="name">
+                            <input type="text" class="form-control" name="name" id="name"    value="${status.name }">
                         </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea type="text" class="form-control" name="description" id="description" aria-label="With textarea">${status.description }</textarea>
                         
-                         <div class="form-group">
-                            <label for="description">description:</label>
-                            <textarea type="text" class="form-control" name="description" id="description" aria-label="With textarea"></textarea>
-                        </div>
                        
-                        <button class="btn btn-primary w-25 justify-content-center" type="submit" class="btn btn-primary">Add</button>
+                        <button class="btn btn-primary w-25 justify-content-center" type="submit" class="btn btn-primary">UpDate</button>
                     </form>
                 </div>
             </div>

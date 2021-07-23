@@ -7,7 +7,7 @@
 
     <head>
 <meta charset="UTF-8">
-<title>Add New ROLE</title>
+<title>Add New STATUS</title>
 </head>
 <body>
 	<!-- Breadcrumb -->
@@ -18,13 +18,13 @@
 	                <nav aria-label="breadcrumb">
 	                    <ol class="breadcrumb mb-0">
 	                        <li class="breadcrumb-item"><a href="<c:url value="<%=UrlConst.HOME %>" />">Home</a></li>
-	                        <li class="breadcrumb-item"><a href="<c:url value="<%=UrlConst.ROLE_DASHBOARD %>" />">User</a></li>
+	                        <li class="breadcrumb-item"><a href="<c:url value="<%=UrlConst.STATUS_DASHBOARD %>" />">User</a></li>
 	                        <li class="breadcrumb-item active" aria-current="page">
-	                            Add New Role
+	                            Add New STATUS
 	                        </li>
 	                    </ol>
 	                </nav>
-	                <h1 class="m-0">Add New Role</h1>
+	                <h1 class="m-0">Add New STATUS</h1>
 	            </div>
 	        </div>
 	    </div>
@@ -38,7 +38,7 @@
                     <p class="text-muted">There is no rule!</p>
                 </div>
                 <div class="col-lg-8 card-form__body card-body">
-                    <form action="<c:url value="<%=UrlConst.ROLE_ADD %>" />" method="post">
+                    <form action="<c:url value="<%=UrlConst.STATUS_ADD %>" />" method="post">
                     
                       
                     <div class="form-group">

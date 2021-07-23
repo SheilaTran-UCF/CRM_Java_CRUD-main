@@ -45,7 +45,12 @@ public class UrlConst {
 		public static final String USER_UPDATE 	= "/user/update";
 		public static final String USER_DELETE 	= "/user/delete";
 		public static final String USER_EDIT = "/user/edit";
-
+		
+		//STATUS
+		public static final String STATUS_DASHBOARD = "/status";
+		public static final String STATUS_ADD = "/status/add";
+		public static final String STATUS_UPDATE = "/status/update";
+		public static final String STATUS_DELETE = "/status/delete";
 		
 	}
 

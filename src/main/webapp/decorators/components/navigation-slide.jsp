@@ -31,6 +31,18 @@
                         <span class="sidebar-menu-text">Task</span>
                     </a>
                 </li>
+                <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button" href="#">
+                        <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">report</i>
+                        <span class="sidebar-menu-text">Role</span>
+                    </a>
+                </li>
+                <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button" href="#">
+                        <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">report</i>
+                        <span class="sidebar-menu-text">Status</span>
+                    </a>
+                </li>
             </ul>
 
             <div class="sidebar-p-a sidebar-b-y">

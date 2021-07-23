@@ -29,5 +29,9 @@ public class JspConst {
 		public static final String USER_ADD = "/WEB-INF/views/user/user-add.jsp";
 		public static final String USER_UPDATE = "/WEB-INF/views/user/user-update.jsp";
 
-		
+		// STATUS
+		public static final String STATUS_DASHBOARD = "/WEB-INF/views/status/status-dashboard.jsp";
+		public static final String STATUS_ADD = "/WEB-INF/views/status/status-add.jsp";
+		public static final String STATUS_UPDATE = "/WEB-INF/views/status/status-update.jsp";	
+	
 	}

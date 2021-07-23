@@ -73,7 +73,17 @@ public class RoleServlet extends HttpServlet{
 		
 	}
 	
-	
+
+	private void getRoleDashboard(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		List<Role> roles = service.findAll();
+		
+		if(roles != null && !roles.isEmpty())
+			req.setAttribute("roles", roles);
+		
+		req.getRequestDispatcher(JspConst.ROLE_DASHBOARD)
+		.forward(req, resp);
+		
+	}
 	// get Delete
 	private void getRoleDelete(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		int id = Integer.parseInt(req.getParameter("id"));
@@ -114,17 +124,7 @@ public class RoleServlet extends HttpServlet{
 		service.add(rodto);
 		resp.sendRedirect(req.getContextPath() + UrlConst.ROLE_DASHBOARD);
 	}
-	//Post DashBoard
-	private void getRoleDashboard(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		List<Role> roles = service.findAll();
-		
-		if(roles != null && !roles.isEmpty())
-			req.setAttribute("roles", roles);
-		
-		req.getRequestDispatcher(JspConst.ROLE_DASHBOARD)
-		.forward(req, resp);
-		
-	}
+
 	// Post Add Extract
 	private RoleDto extractAddDtoFromReq(HttpServletRequest req) {
 		String name = req.getParameter("name");
