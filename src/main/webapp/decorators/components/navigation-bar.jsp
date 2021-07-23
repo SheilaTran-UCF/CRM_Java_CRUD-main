@@ -33,9 +33,22 @@
                             </a>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<c:url value="<%=UrlConst.TASK_DASHBOARD %>" />">Task</a>
+                     <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                           Task
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="<c:url value="<%=UrlConst.TASK_DASHBOARD %>" />">
+                                 Manage Task
+                            </a>
+                            <a class="dropdown-item" href="<c:url value="<%=UrlConst.TASK_ADD %>" />">
+                             Create New Task
+                            </a>
+                           
+                        </div>
                     </li>
+                    
+                    
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
                             User
