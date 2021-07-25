@@ -88,6 +88,21 @@
                             </a>
                         </div>
                     </li>
+                    
+                     </li>
+                      <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                            Task
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="<c:url value="<%=UrlConst.TASK_DASHBOARD %>" />">
+                               	Manage Task
+                            </a>
+                            <a class="dropdown-item" href="<c:url value="<%=UrlConst.TASK_ADD %>" />">
+                                Create Task
+                            </a>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
