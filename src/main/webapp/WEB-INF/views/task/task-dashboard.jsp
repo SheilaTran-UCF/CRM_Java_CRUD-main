@@ -66,9 +66,9 @@
 		                           
 		                           <td> ${task.id}</td>
 		                            <td> ${task.name}</td>
-		                             <td> ${task.project.name}</td>
-		                              <td> ${task.name}</td>
+		                             <td> ${task.project.name}</td>		                     
 		                               <td> ${task.user.name}</td>
+		                                <td> ${task.description}</td>
 		                                <td> ${task.start_date}</td>
 		                                 <td> ${task.end_date}</td>
 		                         <%--   <td><span class="badge badge-primary">${task.user.name }</span></td> --%>
