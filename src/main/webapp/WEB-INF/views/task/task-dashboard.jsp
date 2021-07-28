@@ -77,8 +77,8 @@
 <!-- 		                           	<a href="" class="text-muted"><i class="material-icons">settings</i></a>
  -->		                       
 		                           	
-		                           	<a href="<c:url value="<%=UrlConst.USER_UPDATE%>" />?id=${task.id}" class="text-muted"><i class="material-icons">update</i></a>
-		                           	<a href="<c:url value="<%=UrlConst.USER_DELETE%>" />?id=${task.id}" class="text-muted"><i class="material-icons">delete</i></a>
+		                           	<a href="<c:url value="<%=UrlConst.TASK_UPDATE%>" />?id=${task.id}" class="text-muted"><i class="material-icons">update</i></a>
+		                           	<a href="<c:url value="<%=UrlConst.TASK_DELETE%>" />?id=${task.id}" class="text-muted"><i class="material-icons">delete</i></a>
 		                           </td>
 	                    		</tr>
                  			</c:forEach>

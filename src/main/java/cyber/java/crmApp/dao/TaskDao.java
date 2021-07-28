@@ -247,7 +247,7 @@ public class TaskDao {
 	}
 
 	public void addTask(TaskDto taskDto) throws SQLException {
-		String query = "INSERT INTO task(name, description, start_date, end_date, project_id, user_id, status_id)" + "VALUES(?,?,?,?,?,?,?) ";
+		String query = "INSERT INTO task(name, description, start_date, end_date, project_id, user_id, status_id) VALUES(?,?,?,?,?,?,?)";
 		Connection connection = MySqlConnection.getConnection();
 		try {
 			PreparedStatement statement = connection.prepareStatement(query);
@@ -256,8 +256,8 @@ public class TaskDao {
 			statement.setString(3, taskDto.getStart_date());
 			statement.setString(4, taskDto.getEnd_date());
 			statement.setInt(5, taskDto.getProjectId());
-			statement.setInt(7, taskDto.getUserId());
-			statement.setInt(6, taskDto.getStatusId());
+			statement.setInt(6, taskDto.getUserId());
+			statement.setInt(7, taskDto.getStatusId());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

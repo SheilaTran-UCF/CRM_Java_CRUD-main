@@ -11,8 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
+import cyber.java.crmApp.dto.TaskDto;
+import cyber.java.crmApp.model.Project;
+import cyber.java.crmApp.model.Status;
 import cyber.java.crmApp.model.Task;
+import cyber.java.crmApp.model.User;
+import cyber.java.crmApp.service.ProjectService;
+import cyber.java.crmApp.service.StatusService;
 import cyber.java.crmApp.service.TaskService;
+import cyber.java.crmApp.service.UserService;
+import cyber.java.crmApp.util.JspConst;
 import cyber.java.crmApp.util.UrlConst;
 
 @WebServlet(name="taskServlet", urlPatterns = {
@@ -23,10 +31,16 @@ import cyber.java.crmApp.util.UrlConst;
 	})
 public class TaskServlet extends HttpServlet {
 	private TaskService service;
+	private ProjectService projectService;
+	private UserService userService;
+	private StatusService statusService;
 
 	@Override
 	public void init() throws ServletException {
 		service = new TaskService();
+		projectService = new ProjectService();
+		userService = new UserService();
+		statusService = new  StatusService();
 	}
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -43,9 +57,7 @@ public class TaskServlet extends HttpServlet {
 			break;
 		case UrlConst.TASK_DELETE:
 			getTaskDelete(req,resp);
-			break;
-		
-		
+			break;			
 		}	
 	}
 	
@@ -66,8 +78,7 @@ public class TaskServlet extends HttpServlet {
 		case UrlConst.TASK_DELETE:
 			
 			break;
-		}	
-		
+		}			
 	}
 	
 	private void getTaskDashboard(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -76,30 +87,104 @@ public class TaskServlet extends HttpServlet {
 		if (tasks != null && !tasks.isEmpty())
 			req.setAttribute("tasks", tasks);
 
-		req.getRequestDispatcher(UrlConst.TASK_DASHBOARD).forward(req, resp);
+		req.getRequestDispatcher(JspConst.TASK_DASHBOARD).forward(req, resp);
 		
 	}
-	private void getTaskDelete(HttpServletRequest req, HttpServletResponse resp) {
-		// TODO Auto-generated method stub
+	private void getTaskDelete(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		int id = Integer.parseInt(req.getParameter("id"));
+		service.deleteById(id);
+		
+		resp.sendRedirect(req.getContextPath() + UrlConst.TASK_DASHBOARD);
 		
 	}
-	private void getTaskUpdate(HttpServletRequest req, HttpServletResponse resp) {
-		// TODO Auto-generated method stub
+	private void getTaskUpdate(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		int id = Integer.parseInt(req.getParameter("id"));
+		 Task task =new  Task();
+		 task = service.findTaskById(id);
+		 
+		 req.setAttribute("task", task );
+		 
+		 // infor load to UI
+		 List<Project> projects = projectService.findAll();
+			
+			if(projects != null && !projects.isEmpty())
+				req.setAttribute("projects", projects);
+			
+		List<User> users = userService.findAll();
+			
+			if(users != null && !users.isEmpty())
+				req.setAttribute("users", users);
+			
+		List<Status > statuss = statusService.findAll();
+			
+			if(statuss != null && !statuss.isEmpty())
+				req.setAttribute("statuss", statuss);
+			
+		req.getRequestDispatcher(JspConst.TASK_UPDATE)
+		.forward(req, resp);
 		
 	}
 	private void getTaskAdd(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher(UrlConst.TASK_ADD).forward(req, resp);
+		
+		 List<Project> projects = projectService.findAll();
+			if(projects != null && !projects.isEmpty())
+				req.setAttribute("projects", projects);
+			
+		List<User> users = userService.findAll();
+			if(users != null && !users.isEmpty())
+				req.setAttribute("users", users);
+			
+			
+		List<Status > statuss = statusService.findAll();
+			if(statuss != null && !statuss.isEmpty())
+				req.setAttribute("statuss", statuss);
+		
+		req.getRequestDispatcher(JspConst.TASK_ADD).forward(req, resp);
 		
 	}
 	
+	private void postTaskUpdate(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		TaskDto taskDto =  extractUpdateDtoStaskFromReq(req);
+		service.updateTask(taskDto) ;
+		resp.sendRedirect(req.getContextPath() +  UrlConst.TASK_DASHBOARD);
 
-	private void postTaskUpdate(HttpServletRequest req, HttpServletResponse resp) {
-		// TODO Auto-generated method stub
-		
 	}
-	private void postTaskAdd(HttpServletRequest req, HttpServletResponse resp) {
-		// TODO Auto-generated method stub
+	private void postTaskAdd(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		TaskDto taskDto = extractAddDtoStaskFromReq(req);
+		service.add(taskDto);
+		resp.sendRedirect(req.getContextPath() + UrlConst.TASK_DASHBOARD);
+	}
+	
+	private TaskDto extractUpdateDtoStaskFromReq(HttpServletRequest req) {
+		int id = -1;
+		if (req.getParameter("id") != null) {
+			id = Integer.parseInt(req.getParameter("id"));
+		}
 		
+		String name = req.getParameter("name");
+		String description = req.getParameter("description");
+		String start_date = req.getParameter("start_date");
+		String end_date = req.getParameter("end_date");
+		int projectId = Integer.parseInt(req.getParameter("project1"));
+		int userId = Integer.parseInt(req.getParameter("user1"));
+		int statusId = Integer.parseInt(req.getParameter("status1"));
+
+		return new TaskDto(id, name, description, start_date, end_date, projectId, userId, statusId);
+
+	}
+	private TaskDto extractAddDtoStaskFromReq(HttpServletRequest req) {
+		
+		String name = req.getParameter("name");
+		String description = req.getParameter("description");
+		String start_date = req.getParameter("start_date");
+		String end_date = req.getParameter("end_date");
+		int projectId = Integer.parseInt(req.getParameter("project1"));
+		int userId = Integer.parseInt(req.getParameter("user1"));
+		int statusId = Integer.parseInt(req.getParameter("status1"));
+
+		return new TaskDto(0, name, description, start_date, end_date, projectId, userId, statusId);
+
 	}
 
 	}
