@@ -78,7 +78,7 @@
                                 
                                 <select id="owner" name="owner" data-toggle="select" class="form-control">
                                  <c:forEach var="user" items="${users}" >
-                                    <option selected="" value="${user.id}">${user.name }</option>
+                                    <option selected="" value="${user.id}">  ${user.name }</option>
                                   
                                    </c:forEach>
                                 </select> 
