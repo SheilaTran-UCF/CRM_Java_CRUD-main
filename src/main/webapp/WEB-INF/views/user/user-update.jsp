@@ -55,28 +55,30 @@
                             <label for="email">Email:</label>
                             <input type="email" class="form-control" name="email" id="email"  value="${user.email}">
                         </div>
-                        <div class="form-group">
+<%--                         <div class="form-group">
                             <label for="password">Password:</label>
                             <input type="password" class="form-control" name="password" id="password" value="${user.password}">
-                        </div>
+                        </div> --%>
                         <div class="form-group">
                             <label for="name">Name:</label>
                             <input type="text" class="form-control" name="name" id="name" value="${user.name}">
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone:</label>
-                            <input type="text" class="form-control" name="phone" id="phone"  value="${user.phone}">
+                            <input type="text" class="form-control" name="phone" id="phone" value="${user.phone}">
                         </div>
                          <div class="form-group">
                             <label for="address">Address:</label>
-                            <textarea type="text" class="form-control" name="address" id="address" aria-label="With textarea">${user.address}</textarea>
+                            <input type="text" class="form-control" name="address" id="address" value="${user.address}">
+                            <!-- <textarea type="text" class="form-control" name="address" id="address" aria-label="With textarea"></textarea> -->
                         </div>
                         <div class="form-group">
                                 <label for="role">Role</label>
                                 <select id="role" name="role" data-toggle="select" class="form-control">
-                                    <option selected="" value="1">ADMIN</option>
-                                    <option value="2">LEADER</option>
-                                    <option value="3">STAFF</option>
+                                    <option ${user.role.id == 1? 'selected="true"' : '' } value="1">ADMIN</option>
+                                    <option ${user.role.id == 2? 'selected="true"' : '' } value="2">USER</option>
+                                    <option ${user.role.id == 3? 'selected="true"' : '' } value="3">LEADER</option>
+                                    <option ${user.role.id == 4? 'selected="true"' : '' } value="4">STAFF</option>
                                 </select>
                             </div>
                         <button class="btn btn-primary w-25 justify-content-center" type="submit" class="btn btn-primary">UpDate</button>

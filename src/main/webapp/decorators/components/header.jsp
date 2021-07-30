@@ -101,7 +101,7 @@
                                             </div>
                                         </div>
                                         <div class="flex">
-                                            <a href="">Kenneth</a> đã bình luận trong
+                                            <a href="">Tuấn</a> đã bình luận trong
                                             <a href="">Stack</a><br />
                                             <small class="text-muted">1 phút trước</small>
                                         </div>
@@ -126,18 +126,18 @@
                         </a>
                         <div id="account_menu" class="dropdown-menu dropdown-menu-right">
                             <div class="dropdown-item-text dropdown-item-text--lh">
-                                <div><strong>Kenneth</strong></div>
-                                <div>@Kenneth</div>
+                                <div>Xin Chao <strong>${email}</strong></div>
+                                <!-- <div>@Kenneth</div> -->
                             </div>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item active" href="<c:url value="<%=UrlConst.HOME %>" />">
                                 Dashboard
                             </a>
-                            <a class="dropdown-item" href="<c:url value="<%=UrlConst.USER_PROFILE %>" />"> 
+<%--                             <a class="dropdown-item" href="<c:url value="<%=UrlConst.USER_PROFILE %>" />"> 
                                 My profile
-                            </a>
+                            </a> --%>
                             <a class="dropdown-item" href="<c:url value="<%=UrlConst.USER_EDIT %>" />">
-                                Edit account
+                                Edit profile
                             </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="<c:url value="<%=UrlConst.AUTH_LOGOUT %>" />">Logout</a>

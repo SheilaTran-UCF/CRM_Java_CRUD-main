@@ -79,7 +79,7 @@
 								
 								<select id="project1" name="project1" data-toggle="select" class="form-control">
                                  <c:forEach var="project" items="${projects}" >
-                                    <option selected="" value="${project.id}">  ${project.name}</option>
+                                    <option ${task.project.id == project.id? 'selected="true"' : '' } value="${project.id}">  ${project.name}</option>
                                   
                                    </c:forEach>
                                 </select> 
@@ -90,7 +90,7 @@
 								<label for="user">User ID</label>
 								<select id="user1" name="user1" data-toggle="select" class="form-control">
                                  <c:forEach var="user" items="${users}" >
-                                    <option selected="" value="${user.id}">  ${user.name}</option>
+                                    <option ${task.user.id == user.id? 'selected="true"' : '' } value="${user.id}">  ${user.name}</option>
                                   
                                    </c:forEach>
                                	 </select> 
@@ -101,7 +101,7 @@
 								<label for="status">Status ID</label>
 								<select id="status1" name="status1" data-toggle="select" class="form-control">
                                  <c:forEach var="status" items="${statuss}" >
-                                    <option selected="" value="${status.id}">  ${status.name}</option>
+                                    <option ${task.status.id == status.id? 'selected="true"' : '' } value="${status.id}">  ${status.name}</option>
                                   
                                    </c:forEach>
                                	 </select> 

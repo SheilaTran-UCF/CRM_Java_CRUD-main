@@ -37,9 +37,29 @@
 	                <h1 class="m-0">Add Project For Staff</h1>
 	            </div>
 	            
-	          
+	            <%-- <form action="<c:url value="<%=UrlConst.USER_SEARCH %>" />" method="post">
+                
+	                <div class="form-group">
+	                            <label for="search">UserName:</label>
+	                            <input type="text" class="form-control" name="search" id="search" >
+	                </div>
+	            	<button class="btn btn-primary w-25 justify-content-center" type="submit" class="btn btn-primary">Search</button>
+	            </form> --%>
+	            
 				  <div >
-					
+					<!-- <div class="card card-form"> -->
+			            <!-- <div class="row no-gutters"> -->
+			                <!-- <div class="col-lg-8 card-form__body card-body"> -->
+			                    <form action="<c:url value="<%=UrlConst.USER_SEARCH %>" />" method="post">
+			                        <div class="form-group">
+			                            <label for="search">UserName</label>
+			                             <input type="text" name="search" id="search">
+			                        </div>
+			
+			                        <button type="submit" class="btn btn-light"><i class="material-icons icon-16pt text-muted mr-1">search</i>Search</button>
+			                    </form>
+			                <!-- </div> -->
+			            <!-- </div> -->
 			        <!-- </div> -->
 			     </div>
 	            
@@ -54,19 +74,55 @@
 	           
 	            
 	        </div>
-	        
 	    </div>
-	      <form action="<c:url value="<%=UrlConst.USER_SEARCH %>" />" method="post">
-			                        <div class="form-group">
-			                            <label for="search">UserName</label>
-			                             <input type="text" name="search" id="search">
-			                               <button type="submit" class="btn btn-light"><i class="material-icons icon-16pt text-muted mr-1" right= 122>search</i>Search</button>
-			                        </div>
-			
-			                      
-			                    </form>
 	</div>
+	<!-- End Breadcrumb -->
 	
+	<!-- START BODY -->
+<%-- 	<div class="container">
+		<div class="card card-form">
+            <table class="table mb-0 thead-border-top-0">
+                <thead>
+                    <tr>
+						<th>Name</th>
+	                     <th>Email</th>
+	                     <th>Role</th>
+	                     <th>Phone</th>
+	                     <th>Add Project Here</th>
+                    </tr>
+                </thead>
+                <tbody class="list" id="staff02">
+                 	<c:choose> 
+                 		<c:when test="${userNoPJ == null}">
+                 			<tr class="row">
+                 				<td class="col-12 text-center">There is no data.</td>
+                 			</tr>
+                 		</c:when>
+                 		<c:otherwise>
+                 			<c:forEach var="userNoPJ" items="${userNoPJ}" >
+	                 			<tr>
+		                           <td>
+		                               ${userNoPJ.name }
+		                           </td>
+		                           <td>${userNoPJ.email }</td>
+		                           <td><span class="badge badge-primary">${userNoPJ.role.name }</span></td>
+		                           <td>${userNoPJ.phone }</td>
+		                           <td>
+<!-- 		                           	<a href="" class="text-muted"><i class="material-icons">settings</i></a>
+ -->		                       
+		                           	
+		                           	<a href="<c:url value="<%=UrlConst.PROJECT_STAFF_UPDATE%>" />?id=${userNoPJ.id}" class="text-muted"><i class="material-icons">update</i></a>
+		                           	<a href="<c:url value="<%=UrlConst.USER_DELETE%>" />?id=${userNoPJ.id}" class="text-muted"><i class="material-icons">delete</i></a>
+		                           </td>
+	                    		</tr>
+                 			</c:forEach>
+                 		</c:otherwise>
+                 	</c:choose>
+               	</tbody>
+            </table>
+		</div>
+	</div> --%>
+	<!-- END BODY -->
 	
 	
 	
