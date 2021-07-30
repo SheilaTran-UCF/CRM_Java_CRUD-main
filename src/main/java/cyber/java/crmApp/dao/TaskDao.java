@@ -53,8 +53,8 @@ public class TaskDao {
 					project.setId(resultSet.getInt("project_id"));
 					project.setName(resultSet.getNString("project_name"));
 					project.setDescription(resultSet.getNString("project_description"));
-					project.setStart_date(resultSet.getString("project_start_date"));
-					project.setEnd_date(resultSet.getString("project_end_date"));
+					project.setStart_date(resultSet.getDate("project_start_date"));
+					project.setEnd_date(resultSet.getDate("project_end_date"));
 					project.setOwner(resultSet.getInt("project_owner"));
 					projects.add(project);
 
@@ -186,8 +186,8 @@ public class TaskDao {
 				project.setId(resultSet.getInt("project_id"));
 				project.setName(resultSet.getNString("project_name"));
 				project.setDescription(resultSet.getNString("project_description"));
-				project.setStart_date(resultSet.getString("project_start_date"));
-				project.setEnd_date(resultSet.getString("project_end_date"));
+				project.setStart_date(resultSet.getDate("project_start_date"));
+				project.setEnd_date(resultSet.getDate("project_end_date"));
 				project.setOwner(resultSet.getInt("project_owner"));
 
 				status.setId(resultSet.getInt("status_id"));
